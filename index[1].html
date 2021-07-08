@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Image Captioning</title>
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,200;0,300;0,600;0,700;0,900;1,200;1,300;1,400;1,600;1,700;1,900&display=swap" rel="stylesheet">
+	<style>
+		body{
+			font-family: 'Source Sans Pro', sans-serif;
+			margin: -25px 250px -10px 250px;
+		}
+		.heading{
+			background-color: #efefef;
+			padding: 10px 100px 20px 100px;
+			border-radius: 10px;
+			font-size: 30px;
+			text-shadow: 1px 1px 3px black;
+		}
+		.heading h1{
+			font-weight: 300;
+		}
+		.heading h3{
+			font-weight: 300;
+			font-size: 25px;
+		}
+		.forms p{
+			display: inline-flex;
+			font-weight: bold;
+			font-size: 20px;
+			
+		}
+		.forms input{
+			margin: 15px;
+			border: 1px solid black;
+			border-radius: 5px;
+			padding: 3.5px;
+		}
+		#one{
+			background-color: green;
+			color: white;
+			font-size: 20px;
+			width: 100px;
+			border-radius: 10px;
+			border-color: darkgreen;
+		}
+		#one:after{
+
+		}
+		#two{
+			background-color: red;
+			font-size: 20px;
+			width: 100px;
+			border-radius: 10px;
+			border-color: darkred;
+		}
+		#two a{
+			color: white;
+			text-decoration:none;
+
+		}
+		.image{
+			margin-top: 20px;
+			background-color: lightgreen;
+			border-radius: 10px;
+			height: 320px;
+		}
+		.image img{
+			margin: 10px;
+			height:300px;
+			max-width: 400px;
+		}
+		.text{
+			margin-top:-240px;
+			margin-left: 430px;
+			font-size: 1.7em;
+		}
+		.text2{
+			margin-top:-20px;
+			margin-left: 430px;
+			font-size: 1.2em;
+		}
+		.text3{
+			margin-left: 430px;
+		}
+	</style>
+</head>
+
+<body>
+	<center class="heading">
+		<h1>Image Captioning</h1>
+		<h3> Upload your image to generate a caption!.....</h3>
+	</center>
+	<form align='center' class='forms' method = 'POST' action = "/" enctype="multipart/form-data" >
+		<p>Image :</p>
+		<input id='man' type="file" name="userfile" placeholder="Your image" ><br>
+		<button id='one' type="submit">Submit</button>
+		<button id='two'><a href="http://127.0.0.1:5000/">Reset</a></button>
+	</form>
+	{% if yourCaption %}
+		<div class="image">
+			<img src="{{loc}}">
+			<p class="text"><strong> Generated Caption : </strong> </p><br>
+			<p class="text2"><strong> {{yourCaption}} </strong></p>
+			<audio class="text3" src="{{audio}}" controls autoplay></audio>
+		</div>
+	{% endif %}
+
+</body>	
+</html>
